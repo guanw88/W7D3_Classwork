@@ -167,8 +167,15 @@ function (_React$Component) {
   }, {
     key: "render",
     value: function render() {
+      var imageStyling = {
+        height: "50px",
+        width: "50px"
+      };
       var pokemonLi = this.props.pokemon.map(function (el) {
-        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+        return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+          key: el.id
+        }, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
+          style: imageStyling,
           src: el.image_url
         }), el.name);
       });
