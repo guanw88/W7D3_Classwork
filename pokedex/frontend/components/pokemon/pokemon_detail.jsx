@@ -1,4 +1,6 @@
 import React from 'react';
+import { HashRouter, Route, Link } from "react-router-dom";
+import ItemDetailContainer from '../items/item_detail_container';
 
 class PokemonDetail extends React.Component {
   constructor (props) {
@@ -22,8 +24,12 @@ class PokemonDetail extends React.Component {
     let moveStr = "";
     if (poke.moves) {
       moveStr = poke.moves.join(', ');
-      // let items = Object.values(this.props.items).map((item) => <li>item.name</li>);
-      // debugger;
+
+      const imageStyling = {
+        height: "50px",
+        width: "50px"
+      };
+
       return (
         <div>
           This is pokemon number {this.id}
@@ -36,7 +42,18 @@ class PokemonDetail extends React.Component {
             <li>Type:{poke.poke_type}</li>
           </ul>
           <ul>
-            {Object.values(this.props.items).map((item) => <li key={item.id}>{item.name}</li>)}
+            {Object.values(this.props.items).map((item) =>
+              <div>
+                <li key={item.id}>
+                  <Link to={`/pokemon/${this.id}/items/${item.id}`}>
+                    <li><img style={imageStyling} src={item.image_url}></img></li>
+                  </Link>
+                </li>
+              </div>
+            )}
+            <HashRouter>
+              <Route path="/pokemon/:id/items/:itemId" component= { ItemDetailContainer} />
+            </HashRouter>
           </ul>
         </div>
       );
