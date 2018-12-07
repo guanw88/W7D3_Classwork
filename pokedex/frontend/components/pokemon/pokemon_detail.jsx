@@ -43,17 +43,13 @@ class PokemonDetail extends React.Component {
           </ul>
           <ul>
             {Object.values(this.props.items).map((item) =>
-              <div>
                 <li key={item.id}>
                   <Link to={`/pokemon/${this.id}/items/${item.id}`}>
-                    <li><img style={imageStyling} src={item.image_url}></img></li>
+                    <img style={imageStyling} src={item.image_url}></img>
                   </Link>
                 </li>
-              </div>
             )}
-            <HashRouter>
-              <Route path="/pokemon/:id/items/:itemId" component= { ItemDetailContainer} />
-            </HashRouter>
+            <Route path="/pokemon/:id/items/:itemId" component= { ItemDetailContainer} />
           </ul>
         </div>
       );
