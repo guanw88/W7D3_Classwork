@@ -22,6 +22,8 @@ class PokemonDetail extends React.Component {
     let moveStr = "";
     if (poke.moves) {
       moveStr = poke.moves.join(', ');
+      // let items = Object.values(this.props.items).map((item) => <li>item.name</li>);
+      // debugger;
       return (
         <div>
           This is pokemon number {this.id}
@@ -33,6 +35,9 @@ class PokemonDetail extends React.Component {
             <li>Moves:{moveStr}</li>
             <li>Type:{poke.poke_type}</li>
           </ul>
+          <ul>
+            {Object.values(this.props.items).map((item) => <li key={item.id}>{item.name}</li>)}
+          </ul>
         </div>
       );
     }
@@ -42,11 +47,3 @@ class PokemonDetail extends React.Component {
 }
 
 export default PokemonDetail;
-
-// pokemon.
-//   <li key={el.id}>
-//     <Link to={"/pokemon/" + el.id}>
-//       <img style={imageStyling} src={el.image_url}></img>
-//       {el.name}
-//     </Link>
-//   </li>));

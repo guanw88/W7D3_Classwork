@@ -201,10 +201,16 @@ function (_React$Component) {
       var moveStr = "";
 
       if (poke.moves) {
-        moveStr = poke.moves.join(', ');
+        moveStr = poke.moves.join(', '); // let items = Object.values(this.props.items).map((item) => <li>item.name</li>);
+        // debugger;
+
         return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("div", null, "This is pokemon number ", this.id, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("img", {
           src: poke.image_url
-        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name:", poke.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Attack:", poke.attack), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Defense:", poke.defense), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Moves:", moveStr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Type:", poke.poke_type)));
+        })), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Name:", poke.name), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Attack:", poke.attack), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Defense:", poke.defense), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Moves:", moveStr), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", null, "Type:", poke.poke_type)), react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("ul", null, Object.values(this.props.items).map(function (item) {
+          return react__WEBPACK_IMPORTED_MODULE_0___default.a.createElement("li", {
+            key: item.id
+          }, item.name);
+        })));
       }
 
       return "nothing to see here";
@@ -214,13 +220,7 @@ function (_React$Component) {
   return PokemonDetail;
 }(react__WEBPACK_IMPORTED_MODULE_0___default.a.Component);
 
-/* harmony default export */ __webpack_exports__["default"] = (PokemonDetail); // pokemon.
-//   <li key={el.id}>
-//     <Link to={"/pokemon/" + el.id}>
-//       <img style={imageStyling} src={el.image_url}></img>
-//       {el.name}
-//     </Link>
-//   </li>));
+/* harmony default export */ __webpack_exports__["default"] = (PokemonDetail);
 
 /***/ }),
 
